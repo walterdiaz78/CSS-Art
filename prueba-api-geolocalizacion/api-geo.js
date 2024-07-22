@@ -5,13 +5,12 @@ fetch('https://ipapi.co/json/')
     const priceElements = document.querySelectorAll('.price');
     
     priceElements.forEach(element => {
-      const dollarPrice = parseFloat(element.dataset.usd);
       if (isArgentina) {
-        // Cambio de dólares a pesos (usa una tasa de cambio actualizada)
-        const pesoPrice = dollarPrice * 350; // Ejemplo de tasa
-        element.textContent = `${pesoPrice.toFixed(2)} ARS`;
+        const arsPrice = element.dataset.ars;
+        element.textContent = `${arsPrice} ARS`;
       } else {
-        element.textContent = `${dollarPrice.toFixed(2)} USD`;
+        const usdPrice = element.dataset.usd;
+        element.textContent = `${usdPrice} USD`;
       }
     });
   })
