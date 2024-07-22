@@ -1,0 +1,73 @@
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    #cara {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        border-radius: 50%;
+        position: relative;
+        border-top: 10px solid black;
+        box-shadow: inset 0 25px 0 rgba(0, 0, 0, 10);
+        border: none;
+
+
+    }
+
+    .ojo {
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        border-radius: 50%;
+        position: absolute;
+        top: 50px;
+    }
+    .izquierdo {
+        left: 50px;
+        
+    }
+
+    .derecho {
+        right: 50px;
+    }
+
+    .boca {
+        width: 100px;
+        height: 50px;
+        border-bottom: 10px solid black;
+        border-radius: 0 0 40px 40px;
+        position: absolute;
+        bottom: 30px;
+        left: 50px;
+    }
+
+    .nariz {
+        width: 60px;
+        height: 60px;
+        background-color: red;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 60px;
+        left: 70px;
+    }
+
+    .oreja {
+        width: 30px;
+        height: 70px;
+        background-color: yellow;
+        position: absolute;
+        top: 70px;
+    }
+
+    .derecha {
+        right: 0px;
+        border-radius: 15px;
+    }
+
+    .izquierda {
+        left: 0px;
+        border-radius: 15px;
+    }
