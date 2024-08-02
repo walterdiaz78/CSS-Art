@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#intro, #card, #game {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#letters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-gap: 5px;
+    height: calc(100vh - 240px); 
+}
+
+.letter {
+    background-color: #3e3e3e;
+    color: #ffffff;
+    font-size: calc(5vw + 5vh); 
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+.hidden {
+    display: none;
+}
+
+.blink {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.red-background {
+    background-color: #e74c3c !important;
+}
+
+.invisible {
+    color: transparent; 
+}
+
+.fin-button {
+    background-color: #FF5733; 
+    font-size: calc(5vw + 5vh);
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+}
+
+.fin-button:hover {
+    background-color: #E74C3C;
+}
