@@ -1,0 +1,37 @@
+body {
+    padding: 2rem;
+    height: 100vh;
+    background: black;
+    scrollbar-color: blueviolet;
+
+}
+
+.loader {
+    width: 60px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    border: 12px solid #80AF81;
+    border-right-color: #1a5311;
+    animation: rotate-loader 1s infinite linear ;
+}
+
+@keyframes rotate-loader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loader2 {
+    width: 120px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    border: 14px solid blueviolet;
+    border-right-color: yellow;
+    animation: rotate-loader2 1s infinite linear;
+    
+}
+@keyframes rotate-loader2{
+    to {
+        transform: rotate(360deg);
+    }
+}
