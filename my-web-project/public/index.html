@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Proyecto Web</title>
+</head>
+<body>
+  <h1>¡Hola, mundo!</h1>
+  <p>Bienvenido a mi proyecto web.</p>
+
+  <form id="addUserForm">
+    <input type="text" id="name" placeholder="Nombre" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <button type="submit">Agregar Usuario</button>
+  </form>
+
+  <button id="loadUsers">Cargar Usuarios</button>
+  <ul id="userList"></ul>
+
+  <script>
+    document.getElementById('loadUsers').addEventListener('click', () => {
+      fetch('/users')
+        .then(response => response.json())
+        .then(data => {
+          const userList = document.getElementById('userList');
+          userList.innerHTML = ''; // Limpia la lista antes de agregar usuarios
+          data.data.forEach(user => {
+            const li = document.createElement('li');
+            li.textContent = `ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`;
+            userList.appendChild(li);
+          });
+        })
+        .catch(error => console.error('Error al cargar los usuarios:', error));
+    });
+
+    document.getElementById('addUserForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      fetch('/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message === 'success') {
+            alert('Usuario agregado exitosamente');
+            document.getElementById('addUserForm').reset();
+            document.getElementById('loadUsers').click(); // Actualiza la lista de usuarios
+          } else {
+            alert('Error al agregar usuario: ' + data.error);
+          }
+        })
+        .catch(error => console.error('Error al agregar usuario:', error));
+    });
+  </script>
+</body>
+</html>
